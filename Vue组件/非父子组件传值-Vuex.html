@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./js/vue.js"></script>
+    <script src="https://unpkg.com/vuex@3.1.0/dist/vuex.js"></script>
+</head>
+<body>
+
+        <div id="app">
+    
+                {{count}} <br>
+                <my-addbut :count='count'></my-addbut>  <my-removebut :count='count'></my-removebut>
+    
+        </div>
+    
+    <script>
+
+    const store = new Vuex.Store({
+        state: {
+            count: 0
+        },
+        mutations: {
+            add (state) {
+                state.count++;
+            },
+            remove(state){
+                state.count--;
+            }
+        },
+        
+    })
+    
+    let vm = new Vue({
+            el: '#app',
+            computed :{
+                count : function(){
+                    return store.state.count;
+                }
+            },
+            components : {
+                'my-addbut' : {    // 组件 1 
+                    template : `<button @click='setCount'> + </button>`,
+                    methods:{
+                        setCount:function(){
+                            store.commit('add');
+                        }
+                    }
+                },
+
+                'my-removebut' : {    // 组件 2
+                    template : `<button @click='setCount'> - </button>`,
+                    methods:{
+                        setCount:function(){
+                            store.commit('remove');
+                        }
+                    }
+                },
+            }
+        });
+
+    
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Vue Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!-- vue的非父子组件通信 -->
+    <div id="app">
+            <!-- <my-test-compon></my-test-compon>
+            <my-list></my-list> -->
+
+            {{count}} <br>
+            <my-addbut :count='count'></my-addbut>  <my-removebut :count='count'></my-removebut>
+
+    </div>
+   
+   
+     <script>
+
+        //  空实例
+        let busVm = new Vue();
+    
+        // let vm = new Vue({
+        //     el: '#app',
+        //     components : {
+        //         'my-test-compon' : {    // 组件  my-test-compon
+        //             template : `<h3> {{message}} </h3>`,
+        //             data : function(){
+        //                 return {
+        //                     message : 'annan 你好',
+        //                 }
+        //             },
+        //             mounted:function(){
+        //                 busVm.$on('changeEvents',function(str){      // 接受
+        //                     // console.log(str);
+                            
+        //                     this.message = str;
+        //                 }.bind(this));    // 将 this 指向修改
+        //             }
+        //         },
+
+        //         'my-list' : {    // 组件 my-list
+        //             template : `<ul>
+        //                             <li @click='getContent' v-for="item in list">{{item}}</li>
+        //                         </ul>`,
+        //             data : function() {
+        //                 return {
+        //                     list : ['222','33','444','555']
+        //                 }
+        //             },
+        //             methods: {
+        //                 getContent : function(e){
+        //                     busVm.$emit('changeEvents',e.target.innerHTML);   // 发布 
+        //                 }
+        //             }
+        //         }
+
+
+        //     }
+        // });
+
+
+        //  空实例 实现计数器
+        let vm = new Vue({
+            el: '#app',
+            data : function(){
+                return {
+                    count : 0,
+                }
+            },
+            mounted: function(){
+                busVm.$on('changeEvents',function(num){
+                    this.count = num;
+                }.bind(this));
+            },
+            components : {
+                'my-addbut' : {    // 组件 1 
+                    template : `<button @click='setCount'> + </button>`,
+                    props:['count'],
+                    methods:{
+                        setCount:function(){
+                            busVm.$emit('changeEvents',this.count+1);
+                        }
+                    }
+                },
+
+                'my-removebut' : {    // 组件 2
+                    template : `<button @click='setCount'> - </button>`,
+                    props:['count'],
+                    methods:{
+                        setCount:function(){
+                            busVm.$emit('changeEvents',this.count-1);
+                        }
+                    }
+                },
+            }
+        });
+        
+    </script>
+
+</body>
+</html>
