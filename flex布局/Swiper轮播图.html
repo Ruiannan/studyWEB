@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Swiper轮播图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/swiper.min.css">
+    <link rel="stylesheet" href="./css/mystyle.css">
+</head>
+
+<body>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="imgBox">
+                    <img src="./image/1.jpg" alt="">
+                </div>
+                <div class="details">
+                    <h3>锦鲤</h3>
+                    <span>杨超越祝我顺利！！！</span>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="imgBox">
+                    <img src="./image/2.jpg" alt="">
+                </div>
+                <div class="details">
+                    <h3>锦鲤</h3>
+                    <span>杨超越祝我顺利！！！</span>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="imgBox">
+                    <img src="./image/3.jpg" alt="">
+                </div>
+                <div class="details">
+                    <h3>章若楠</h3>
+                    <span>章若楠好看丫！</span>
+                </div>
+            </div>
+
+            <div class="swiper-slide">
+                <div class="imgBox">
+                    <img src="./image/4.jpg" alt="">
+                </div>
+                <div class="details">
+                    <h3>章若楠</h3>
+                    <span>章若楠好看丫！</span>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <script src="./js/swiper.min.js"></script>
+
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: true,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+    </script>
+
+</body>
+
+</html>
