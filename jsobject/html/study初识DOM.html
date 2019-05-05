@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>study初识DOM </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="main.js"></script> -->
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            border: 1px solid black;
+        }
+
+        ul{
+            /* top: 50%;
+            left: 50%;
+            margin-top: -200px;
+            margin-left: -200px; */
+
+            list-style: none;
+            width: 400px;
+            height: 400px;
+        }
+
+        .arapper {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .content {
+            display: none;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin-top: 20px;
+        }
+
+        .active {
+            background-color: yellow;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- <div></div> -->
+
+    <!-- <div class="arapper">
+        <button class="active">111</button>
+        <button>222</button>
+        <button>333</button>
+
+        <div class="content" style="display:block">111</div>
+        <div class="content">222</div>
+        <div class="content">333</div>
+
+    </div> -->
+
+
+    <ul>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+        <li img-data='0'></li>
+    </ul>
+
+    <script>
+        // 点击操作 div 变成圆
+        // var div = document.getElementsByTagName('div')[0];
+
+        // div.style.width = '100px';
+        // div.style.height = '100px';
+        // div.style.backgroundColor = 'pink';
+
+        // var count = 0;
+
+        // div.onclick = function(){
+
+        //     count++;
+
+        //     var color = 'red',
+        //         radius = '0%';
+
+        //     if(count % 2 == 1){
+        //         color = 'red';
+        //         radius = '50%';
+        //     }else{
+        //         color = 'pink';
+        //         radius = '0%';
+        //     }
+
+        //     this.style.backgroundColor = color;
+        //     this.style.borderRadius = radius;
+
+        // }
+
+
+        //  操作DOM 写一个选项卡
+
+        // var btn = document.getElementsByTagName('button');
+        // var div = document.getElementsByClassName('content');
+
+        // for (let i = 0; i < btn.length; i++) {
+
+        //     (function(n) {
+        //         btn[n].onclick = function() {
+
+        //             for (let j = 0; j < btn.length; j++) {
+        //                 btn[j].className = '';
+        //                 div[j].style.display = 'none';
+        //             }
+        //             this.className = 'active';
+        //             div[i].style.display = 'block';
+        //         }
+        //     }(i))
+        // }
+
+
+
+        // 写一个小方块的运动
+
+        // var cDiv = document.createElement('div');
+
+        // document.body.appendChild(cDiv);
+
+        // var divsty = cDiv.style;
+        // divsty.width = '100px';
+        // divsty.height = '100px';
+        // divsty.backgroundColor = 'pink';
+        // divsty.position = 'absolute';
+        // divsty.left = '0';
+        // divsty.top = '0';
+
+        // var speed = 1;
+
+        // var timer = setInterval( function (){
+
+        //     speed +=speed/20;
+        //     divsty.left = parseInt(divsty.left) + speed + 'px';
+        //     divsty.top = parseInt(divsty.top) + speed + 'px';
+
+        //     if(parseInt(divsty.left) > 300 && parseInt(divsty.top) > 300){
+        //         clearInterval(timer);
+        //     }
+
+        // },50)
+    
+
+        // document.onkeydown = function(e){
+
+        //     switch(e.which){
+
+        //         case 38:
+        //             divsty.top = parseInt(divsty.top) - 5 + 'px';
+        //         break;
+        //         case 40:
+        //             divsty.top = parseInt(divsty.top) + 5 + 'px';
+        //         break;
+        //         case 37:
+        //             divsty.left = parseInt(divsty.left) - 5 + 'px';
+        //         break;
+        //         case 39:
+        //             divsty.left = parseInt(divsty.left) + 5 + 'px';
+
+        //     }
+
+        // }
+
+
+        // 实现一个方格的画板 
+
+        var ul = document.getElementsByTagName('ul')[0];
+
+        ul.onmouseover = function(e){
+
+            var event = e || window.event;
+            var target = event.target || event.srcElement;
+
+            target.style.backgroundColor = "rgb(0,255," + target.getAttribute('img-data') + ")";
+
+            target.setAttribute('img-data',parseInt(target.getAttribute('img-data')) + 6)
+
+        }
+        
+
+
+    </script>
+
+</body>
+
+</html>

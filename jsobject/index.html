@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>js 函数小练习</title>
+		<!-- <script src="js/study预编译.js"></script>
+		<script src="js/study作用域.js"></script>
+		<script src="js/study闭包.js"></script>
+		<script src="js/study对象.js"></script>
+		<script src="js/study原型.js"></script> -->
+		<!-- <script src="js/study继承.js"></script> -->
+		<!-- <script src="js/小知识点.js"></script> -->
+		<!-- <script src="js/stduy对象的枚举.js"></script> -->
+		<!-- <script src="js/studythis.js"></script> -->
+		<!-- <script src="js/study拷贝.js"></script> -->
+		<!-- <script src="js/study数组.js"></script> -->
+		<!-- <script src="js/数组去重.js"></script> -->
+		<!-- <script src="js/复习复习.js"></script> -->
+		<!-- <script src="js/stydy.try...catch.js"></script> -->
+		<script src="js/stydyES5标准模式.js"></script>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+
+			ul{
+				list-style: none;
+			}
+
+			li:nth-of-type(2n){
+				text-align: center;
+				background-color: aqua;
+			}
+
+			li:nth-of-type(2n+1){
+				text-align: center;
+				background-color: pink;
+			}
+
+			.testclass {
+				border: 1px solid black;
+				height: 50px;
+				width: 300px;
+
+				text-align: center;
+				line-height: 50px;
+			}
+
+
+
+
+		</style>
+
+	</head>
+	<body>
+
+		<ul>
+			<li>a</li>
+			<li>b</li>
+			<li>c</li>
+			<li>d</li>
+		</ul>
+
+
+		<div class="testclass">
+			jdjssjddjdjdj
+		</div>
+
+		<script>
+
+			// 使用onclick 点击每个li 的索引
+			function myClickLi(){
+
+				var myClickdata = document.getElementsByTagName("li");
+
+				// console.log(myClickdata);
+
+				for(var i = 0; i<myClickdata.length; i++){
+
+					(function (j){
+						myClickdata[j].onclick = function () {
+							console.log(j + this.innerText);
+						}
+					}(i))
+
+				}
+
+			}
+
+			// myClickLi();
+
+
+			// 当 var a = ? 可以输出 1 ；---------------------------
+			function test1(){
+
+				var a = {
+					i:1,
+					toString(){
+						console.log(a.i);
+						return a.i++;
+					}
+				};
+
+				if( a == 1 && a == 2 && a == 3){
+					console.log(666);
+				}
+
+			}
+
+			// test1();
+
+			// 待解决的面试题：
+			// 下面代码打印什么内容，为啥？  ---------------------------
+			function test2(){
+
+				// GO:{
+				// 	b :functions;
+					
+				// }
+
+				// AO:{
+					
+				// }
+
+				var b = 10;
+				(function b(){
+					b = 20;
+					console.log(b);
+					
+				})
+			}
+
+			// test2();
+
+			// 改造下面代码，使之分别打印10 和 20  ---------------------------
+			function test3(){
+
+				var b = 10;
+				console.log(b);
+				
+				(function b(){
+					b = 20;
+					console.log(b);
+					
+				})
+			}
+
+			// test3();
+
+
+			
+
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>js弹出遮罩层</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+
+        .btn {
+            width: 100px;
+            height: 30px;
+            border: 1px solid rgba(63, 60, 60);
+            position: fixed;    
+            top: 85%;
+            left: 5%;
+            text-align: center;
+            line-height: 30px;
+            padding: 0 20px;
+            border-radius: 50%;
+            color: blue;
+            cursor: pointer;
+            background:linear-gradient(to right, red,yellow,pink);
+
+            transition:width 1s linear 1ms;
+
+        }
+
+        .warp{
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width:100%;
+            display: none;
+            background: rgba(0, 0, 0, 0.3);
+
+            transition:display 1s linear 1ms;
+        }
+
+        .box{
+            position:relative;
+            width: 500px;
+            height: 500px;
+            border:1px solid white;
+            margin: 150px auto;
+            border-radius: 10%;
+        }
+
+        .box img{
+            width: 100%;
+            height: 100%;
+            border-radius: 10%;
+        }
+
+        .box span{
+            position:absolute;
+            top: 45%;
+            color: aliceblue;
+            font-size: 40px;
+            font-weight: bolder;
+            text-align: center;
+            margin: 0 auto;
+            line-height: 2;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 10%;
+        }
+
+        .box .left{
+            left: 0;
+        }
+
+        .box .right{
+            right: 0;
+        }
+
+        #ll{
+            width: 100px;
+            height: 30px;
+            background: rgba(0, 0, 0, 0.6);
+
+            transition:width 2s linear 1ms;
+        }
+
+        #ll:hover{
+            width: 300px;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="btn"> 点我试试！！ </div>
+
+    <div class="warp">
+        <div class="box">
+            <img class="image" src="../img/2.jpg" alt="">
+
+            <span class="left"> &lt; </span>
+            
+            <span class="right"> &gt; </span>
+        </div>
+    </div>
+
+    <div id="ll">嗨</div>
+
+    <div style="height:1600px;width:auto;border:1px solid pink;">
+        llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>
+        llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>
+        llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>
+        llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>
+        llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>llll<br>
+    </div>
+
+    
+
+    <script>
+
+            var btn = document.getElementsByClassName('btn')[0];
+            var warp = document.getElementsByClassName('warp')[0];
+            var box = document.getElementsByClassName('box')[0];
+            var left = document.getElementsByClassName('left')[0];
+            var right = document.getElementsByClassName('right')[0];
+            var image = document.getElementsByClassName('image')[0];
+    
+            var nowindex = 0;
+    
+            window.onload = function(){
+    
+                btn.onclick = function(){
+                    warp.style.display = 'block';
+                    btn.style.width = '150px';
+                    btn.style.background = 'linear-gradient(to left, red,yellow,pink)';
+                }
+    
+                warp.onclick = function(){
+                    warp.style.display = 'none';
+                    btn.style.width = '100px';
+                    btn.style.background = 'linear-gradient(to right, red,yellow,pink)';
+                }
+    
+                box.onclick = function(e){
+                    e.stopPropagation();
+                }
+    
+                left.onclick = function(){
+                    move(-1);
+                }
+    
+                right.onclick = function(){
+                    move(1);
+                }
+    
+            }
+    
+            // bindEvent();
+    
+            function move(num){
+                var now = nowindex + num;
+    
+                if(now > 4){
+                    now = 1;
+                }
+    
+                if(now < 1){
+                    now = 4;
+                }
+                nowindex = now;
+    
+                image.setAttribute('src',`../img/${now}.jpg`);
+            }
+            
+        </script>
+    
+</body>
+</html>
