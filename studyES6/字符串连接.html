@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+
+        // -------- ES6 的字符串模板- 字符串拼接---
+        let name = 'annan';
+        let age = 23;
+        
+        let str = `我是${name},年龄${age}`
+
+        document.write(str);
+
+        
+         let data = [
+            {title:'是非得失东方闪电',read:999},
+            {title:'发大水时发生',read:55},
+            {title:'兢兢业业就',read:9939},
+            {title:'嫉贪如雠',read:222},
+            {title:'面面具发的',read:723}
+         ]
+
+         window.onload = function (){
+             let oul = document.querySelector("#ulid");
+
+             for(let i = 0;i < data.length; i++){
+                let oli = document.createElement("li");
+
+                oli.innerHTML = `<span>新闻标题：${data[i].title}</span>
+                                <span>阅读人数：${data[i].read}</span>
+                                <a href="#">详情</a>`;
+                oul.appendChild(oli);
+             }
+
+         }
+
+    </script>
+</head>
+<body>
+
+    <ul id="ulid"></ul>
+    
+</body>
+</html>

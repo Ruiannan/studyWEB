@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+   
+//  --------------------------------------------------------------------forEach
+    // let arr = ['apple','banana','orange'];
+    // arr.forEach(function(val,index,arr){
+    //     console.log(val,index,arr);
+        
+    // });
+    
+    // arr.forEach((val,index,arr) => {
+    //     console.log(val,index,arr);
+    // });
+
+// ---------------------------------------------------------------------map
+    // let testjson = [
+    //     {title:'kkkk',read:888,hot:true},
+    //     {title:'ttt',read:888,hot:true},
+    //     {title:'hhh',read:888,hot:true},
+    //     {title:'hhh',read:888,hot:true},
+    //     {title:'ccc',read:888,hot:true},
+    // ]
+
+    // let getjson = testjson.map((item,index,arr) => {
+        
+    //     let setjson = {};
+    //     setjson.tit = `哈哈哈；${item.title}`;
+    //     setjson.s = item.read;
+    //     setjson.hot = item.hot;
+
+    //     return setjson;
+    // });
+
+    // console.log(getjson);
+    
+// -----------------------------------------------------------------filter
+    //  let newtest = [
+    //     {title:'kkkk',read:888,hot:true},
+    //     {title:'ttt',read:888,hot:false},
+    //     {title:'hhh',read:888,hot:true},
+    //     {title:'mmm',read:888,hot:false},
+    //     {title:'ccc',read:888,hot:true},
+    // ]
+
+    // let newjson = newtest.filter((item,index,arr) => {
+
+    //     return item.hot == true;
+    // });
+
+    // console.log(newjson);
+
+// ----------------------------------------------------------------arr.some
+    // let newarr = ['apple','banana','orange','apple'];   // 数组.some 是回调函数中判断元素是否存在，只要有一个存在就返回true ，如果所有回调函数的返回值都为false ，则表示数组中不存在该元素，返回 false
+
+    // let somearr = newarr.some((item,index,arr)=>{
+    //     return item == 'apple';
+    // })
+
+    // console.log(somearr);
+
+
+// --------------------------------------------------------------arr.every
+    //    let numarr = [1,3,5,7,9] 
+
+    // // 使用 数组的every 来判断数组里的是否都是 奇数
+    //   var newnum = numarr.every((item,index,arr) => {
+    //     return item%2 == 1;
+    //   });
+
+    //   console.log(newnum);
+
+// ------------------------------------------------------------- arr.reduce
+    // let sum = [1,2,3,4,5,6,7,8,9,10];   // reduce  -----> 从左往右 处理
+
+    // // 求和 ,阶乘
+    // let newsum = sum.reduce((prev,cur,index,arr) => {
+    //     return prev + cur;
+    // });
+
+    // console.log(newsum);
+
+
+// ------------------------------------------------------------ arr.reduceRight
+    // let sum = [1,2,3,4,5,6,7,8,9,10];   // reduceRight  -----> 从右往左 处理
+
+    // // 求和 ,阶乘
+    // let newsum = sum.reduce((prev,cur,index,arr) => {
+    //     return prev + cur;
+    // });
+
+    // console.log(newsum);
+
+// ------------------------------------------------------------ ES6 的循环 
+    // let newArray = ['apple','banana','orange','apple'];
+
+    // for(let item of newArray){
+    //     console.log(item);
+        
+    // }
+
+    // for(let key of newArray.keys()){
+    //     console.log(key);
+        
+    // }
+
+    // for(let [key,item] of newArray.entries()){   // 数组的entries()  
+    //     console.log(key,item);
+        
+    // }
+
+
+// --------------ES6 数组------
+    //---------------- Array.from();  // 把类数组转为数组 （arguments ，获取一组元素 。。。。）
+    
+    // let hahfun = function testFrom(){
+    //     let hah = Array.from(arguments);
+    //     return hah;
+    // }
+
+    // console.log(hahfun('dffdf',434,'fiiiid',2323,5555));
+    
+
+    // ------------Array.of();   // 把一组值，转为数组
+    // let numbers = Array.of(3,3,5,7,43,211,75);
+    // console.log(numbers);
+    
+
+    // -------------arr.find();  // 用于找到数组中第一和符合条件的元素  , 回调函数返回第一个满足条件元素 , 如果没找到，返回undefined 
+    // let aArr = [1,34,66,73,3,53,533];
+
+    // let newaArr = aArr.find((item,index,arr) => {
+    //     return item > 55;
+    // });
+
+    // console.log(newaArr);
+    
+    // -------------arr.findIndex(); // 用于找到数组中第一和符合条件的元素  , 回调函数返回第一个满足条件元素下标位置,如果没找到，返回 -1
+
+    // -------------arr.fill('填充的东西','开始位置','结束位置');  // 用于填充
+    // let arr = new Array(10);
+
+    // let aaa = arr.fill('默认值');
+    // console.log(aaa);
+
+    // let bbb = arr.fill('默认值',3,6);
+    // console.log(bbb);
+
+
+    //-------------- arr.includes();  //测试数组中的元素有没有 ，有返回true ，没有返回 false
+
+    // let arrtest1 = ['apple','banana','orange','tomato'];
+
+    // let booltest = arrtest1.includes('orange');
+
+    // console.log(booltest);
+    
+  
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

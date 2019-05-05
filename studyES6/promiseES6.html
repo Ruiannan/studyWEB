@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        // es6 的 promise 
+
+        // 基础写法  有两个参数 成功  和  拒绝
+
+        // new Promise((resolve,reject)=>{
+        //     reject('hahhah');
+        // }).then((parma)=>{
+        //     document.write(parma);
+        // }).catch(()=>{
+        //     alert('lose');
+        // })
+
+
+        // fetch 的使用
+            document.querySelector('.clickbut')['onclick']=X=>{
+
+                fetch(`http://localhost:2133/login?user=${user.value}&pwd=${pwd.value}`,{
+                    method:'GET',
+                }).then((res)=>{
+                    res.json(()=>{    // res.json  就是 promise 的内容了
+
+                    }).then(()=>{   // 成功
+                        console.log('OK了');
+                        
+                    }).catch(()=>{   // 失败
+                        console.log('服务失败');
+                        
+                    })
+                })
+
+            }
+
+
+
+    </script>
+</head>
+<body>
+    
+    nane:<input type="text" id="user"><br>
+    pwd:<input type="text" id="pwd"><br>
+    <button class="clickbut">点击登录</button>
+
+</body>
+</html>
