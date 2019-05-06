@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DOM 案例练习</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div>
+        <!-- 我是注释 -->
+        <span>
+            <i></i>
+        </span>
+        <strong></strong>
+        <p></p>
+        <div></div>
+    </div>
+
+    <script>
+
+        // 1.遍历元素节点树（在原型连上编译）
+
+        // 2.封装函数，返回元素e的第n层祖先元素节点
+        // var iii = document.getElementsByTagName('i')[0];
+        // function nParent(e,n){
+
+        //     while (e && n) {
+        //         e = e.parentElement;
+        //         n--;
+        //     }
+
+        //     return e;
+        // }
+
+        // 3.封装函数，返回元素e的第n个兄弟元素节点，n为正，返回后面的兄弟元素节点，n为负，返回前面的，n为0，返回自己
+
+        // var strong = document.getElementsByTagName('strong')[0];
+
+        // function getBorther(e,n){
+
+        //     while(e && n){
+
+        //         if(n > 0){
+        //             if(e.nextElementSibling){
+        //                 e = e.nextElementSibling;
+        //             }else{
+        //                 // 兼容ie9 以下
+        //                 for(e = e.nextSibling;e && e.nodeType != 1;e = e.nextSibling);
+        //             }
+        //             n--;
+        //         }else{
+        //             if(e.previousElementSibling){
+        //                 e = e.previousElementSibling;
+        //             }else{
+        //                 // 兼容ie9 以下
+        //                 for(e = e.previousSibling;e && e.nodeType != 1;e = e.previousSibling);
+        //             }                    
+        //             n++;
+        //         }
+
+        //     }
+
+        //     e = e;
+
+        //     return e;
+
+        // }
+
+
+        // 4.编辑函数，封装myChild功能，解决以前浏览器的兼容问题
+
+        // var div = document.getElementsByTagName('div')[0];
+
+        // Element.prototype.myChildren = function(){
+        //     var child = this.childNodes,
+        //         len = child.length,
+        //         arr = [];
+
+        //         for (let i = 0; i < len; i++) {
+        //             if(child[i].nodeType == 1){
+        //                 arr.push(child[i]);
+        //             }
+        //         }
+
+        //     return arr;
+        // }
+
+        // 5.自己封装hasChildren()方法,判断子元素中有没有元素节点，不可用children属性
+
+        // Element.prototype.hasChildren = function(){
+        //     var child = this.childNodes,
+        //         len = child.length;
+
+        //         for (let i = 0; i < len; i++) {
+        //             if(child[i].nodeType == 1){
+        //                 return true;
+        //             }
+        //         }
+
+        //     return false;
+        // }
+
+
+        // 小练习：1
+            // var div = document.createElement('div');
+            // var p = document.createElement('p');
+            
+            // div.setAttribute('class','examper');
+            // p.setAttribute('class','slogan');
+
+            // p.innerHTML = '帅';
+
+            // div.appendChild(p);
+
+            // document.body.appendChild(div);
+
+        // 小练习：2
+        // 封装函数insertAfter(); 功能类似insertBrfore();
+        // Element.prototype.insertAfter = function(targetNode,afterNode){
+
+        //     var beforNode = afterNode.nextElementSibling;
+
+        //     if(beforNode == null){
+        //         this.appendChild(targetNode);
+        //     }else{
+        //         this.insertBefore(targetNode,beforNode);
+        //     }
+
+        // }
+
+        // var div = document.getElementsByTagName('div')[0];
+        // var div2 = document.getElementsByTagName('div')[1];  // afterNode
+        // var p = document.getElementsByTagName('p')[0];  // afterNode
+    
+        // var a = document.createElement('a');  // targetNode
+
+        // 小练习：3 将目标节点的节点顺序逆序
+
+        
+
+
+    </script>
+
+
+</body>
+
+</html>
