@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>js 的日期对象</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style>
+    
+        input{
+            text-align: right;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    minutes: <input type="text" value="0">
+    seconds: <input type="text" value="0">
+
+    <script>
+
+        // 创建日期对象
+
+        var date = new Date();
+
+        // 定时器
+        // setInterval 定时循环
+        var i = 0;
+        var timer = setInterval(() => {
+
+            console.log(i++);
+            
+            if(i == 10){
+                clearInterval(timer);   //清除定时器
+            }
+            
+        }, 1000);
+
+        // setTimeout 定时执行一次
+        var timerOut = setTimeout(() => {
+
+            console.log("呵呵");
+
+            // clearTimeout(timerOut);  //清除定时器
+            
+        }, 1000 * 10);
+
+        // 内部this指向window
+
+
+        // 小练习: 写一个计数器
+
+        var minutesNode = document.getElementsByTagName('input')[0];
+
+        var secondsNode = document.getElementsByTagName('input')[1];
+
+        var minutes = 0,
+            seconds = 0;
+
+        var testTimer = setInterval(() => {
+            
+            seconds++;
+
+            if(seconds == 60){
+                seconds = 0;
+                minutes++;
+            }
+
+            minutesNode.value = minutes;
+            secondsNode.value = seconds;
+
+            if(minutes == 20){
+
+                clearInterval(testTimer);
+
+            }
+
+        }, 10);
+
+
+    </script>
+
+
+</body>
+
+</html>
