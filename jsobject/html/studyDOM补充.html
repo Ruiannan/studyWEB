@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DOM 补充</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+</head>
+
+<body>
+
+    <ul>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+        <li>a</li>
+    </ul>
+
+    <!-- <hr width="2000px">
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br> -->
+
+    <script>
+        // 1.求滚动条滚动距离  兼容问题
+
+        // 求滚动条滚动距离 : window.pageXOffset  /    window.pageYOffset
+        // 求滚动条滚动距离    IE9以下：document.body.scrollLeft  /   document.body.scrollTop     ------document.documentElement.scrollLeft  /   document.documentElement.scrollTop  
+
+        // 封装方法   
+        function getScrollOffset(){
+
+            if(window.pageXOffset){
+
+                return {
+                    x :window.pageXOffset,
+                    y :window.pageYOffset,
+                }
+
+            }else{
+
+                return {
+                    x :document.body.scrollLeft + document.documentElement.scrollLeft,
+                    y :document.body.scrollTop + document.documentElement.scrollTop,
+                }
+
+            }
+
+        }
+
+
+        // 2.求可视区窗口的尺寸
+
+        // 求可视区窗口的方法：window.innerWidth/window.innerHeight
+        // IE8和IE8以下：document.documentElement.clientWidth/clientHeight  (标准模式  <!DOCTYPE html>   )
+        // IE8和IE8以下：document.body.clientWidth/clientHeight  (怪异模式  没有 <!DOCTYPE html>   )
+
+        // 封装方法    求可视区窗口的尺寸   兼容IE8和IE8以下
+        function getViewportOffset() {
+
+            if(window.innerWidth){
+
+                return {
+                    w : window.innerWidth,
+                    h : window.innerHeight
+                }
+
+            }else{
+
+                if(document.compatMode === "BackCompat"){
+                    // 兼容怪异模式
+                    return {
+                        w : document.body.clientWidth,
+                        h : document.body.clientHeight
+                    }
+
+                }else{
+                    // 标准模式
+                    return {
+                        w : document.documentElement.clientWidth,
+                        h : document.documentElement.clientHeight
+                    }
+
+                }
+
+            }
+            
+        }
+
+
+        // 查看元素的几何尺寸  // div.getBoundingClientRect();  // div.offsetWidth / div.offsetHeight
+
+
+        // 事件 的练习
+        // var liarr = document.getElementsByTagName('li');
+
+        // for (var i = 0; i < liarr.length; i++) {
+            
+        //     (function(i){
+        //         // 绑定事件放到函数中可能会产生闭包
+        //         liarr[i].addEventListener('click',function(){
+        //             console.log(i);
+                    
+        //         },false);
+
+        //     }(i))
+            
+        // }
+
+
+        // 封装事件绑定函数  兼容ie
+        function addEvent(elem , type , handle){
+
+            if(elem.addEventListener){
+
+                elem.addEventListener(type,handle,false);
+
+            }else if(elem.attachEvent){
+
+                elem.attachEvent('on' + type,function(){
+                    handle.call(elem);
+                });
+
+            }else{
+
+                elem['on' + type] = handle;
+
+            }
+
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
